@@ -23,6 +23,10 @@ export class AuthService {
         const newUser = new this.userDocument(data);
         return await newUser.save();
     }
+    async login(data:any){
+        
+
+    }
 
   // Implement authentication logic here
 }
