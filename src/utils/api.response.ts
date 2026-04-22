@@ -2,9 +2,9 @@ export class ApiResponse<T> {
     data?: T;
     message?: string
     statusCode?: number;
-    constructor(data: T, message: string, statusCode?: number) {
-        this.data = data;
-        this.message = message;
-        this.statusCode = statusCode;
+    constructor(response?: { data?: T; message?: string; statusCode?: number }) {
+        this.data = response?.data;
+        this.message = response?.message;
+        this.statusCode = response?.statusCode;
     }
 }
