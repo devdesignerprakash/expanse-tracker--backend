@@ -7,9 +7,6 @@ import * as bcrypt from 'bcrypt';
 import { LoginDto } from "./login.dto";
 import { JwtService } from "@nestjs/jwt";
 import { ItokenPayload } from "./token.payload.dto";
-
-
-
 @Injectable()
 export class AuthService {
     constructor(
@@ -43,7 +40,6 @@ export class AuthService {
         email:existuser.email,
         role:existuser.role
     }
-  
     const token = this.jwtService.signAsync(payload)
     return token
 }

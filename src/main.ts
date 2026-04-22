@@ -6,8 +6,8 @@ import { ValidationPipe } from '@nestjs/common';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const config= new DocumentBuilder()
-  .setTitle('Expanse Tracker API')
-  .setDescription('API documentation for Expanse Tracker')
+  .setTitle('Expense Tracker API')
+  .setDescription('API documentation for Expense Tracker')
   .setVersion('1.0')
   .build();
   app.useGlobalPipes(new ValidationPipe());
