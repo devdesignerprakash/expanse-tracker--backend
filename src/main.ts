@@ -2,13 +2,14 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { ValidationPipe } from '@nestjs/common';
+import * as packaage from '../package.json'
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const config= new DocumentBuilder()
   .setTitle('Expense Tracker API')
   .setDescription('API documentation for Expense Tracker')
-  .setVersion('1.0')
+  .setVersion(packaage.version)
   .build();
   app.useGlobalPipes(new ValidationPipe());
   const documentFactory = () => SwaggerModule.createDocument(app, config);

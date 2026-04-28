@@ -1,7 +1,7 @@
 import { Body, Controller, Post, Res } from "@nestjs/common";
 import { AuthService } from "./auth.service";
-import { ApiResponse } from "src/utils/api.response";
-import type{ UserDocument } from "src/user/user.schema";
+import { ApiResponse } from "../utils/api.response";
+import type{ UserDocument } from "../user/user.schema";
 import { RegisterDto } from "./register.dto";
 import { LoginDto } from "./login.dto";
 import type{ Response } from "express";
@@ -28,7 +28,7 @@ export class AuthController {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
       sameSite: 'lax',
-      maxAge: 60 * 60 * 1000, // 1 hour in milliseconds
+      maxAge: 60 * 60 * 1000, 
     });
 
     return new ApiResponse<string>({message:"user logged in successfully"});
