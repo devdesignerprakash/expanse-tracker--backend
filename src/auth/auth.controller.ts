@@ -24,7 +24,7 @@ export class AuthController {
 ):Promise<ApiResponse<string>>
 {
     const accessToken= await this.authService.login(data);
-     response.cookie('auth-token', accessToken, {
+     response.cookie('accessToken', accessToken, {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
       sameSite: 'lax',
@@ -33,4 +33,5 @@ export class AuthController {
 
     return new ApiResponse<string>({message:"user logged in successfully"});
   }
+
 }

@@ -1,7 +1,7 @@
 import { BadRequestException, ConflictException, Injectable, NotFoundException } from "@nestjs/common";
 import { InjectModel } from "@nestjs/mongoose";
 import { Model } from "mongoose";
-import type{ UserDocument } from "src/user/user.schema";
+import type{ UserDocument } from "../user/user.schema";
 import { RegisterDto } from "./register.dto";
 import * as bcrypt from 'bcrypt';
 import { LoginDto } from "./login.dto";
