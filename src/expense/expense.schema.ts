@@ -1,5 +1,7 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { HydratedDocument,Types} from 'mongoose';
+import { PaymentMethod } from '../utils/paymentMethod.enum';
+import { RecurringType } from '../utils/recurringType.enum';
 
 export type ExpenseDocument = HydratedDocument<Expense>
 
@@ -18,8 +20,8 @@ export class Expense {
   category: string;
 
   @Prop({
-    enum: ['cash', 'card', 'bank', 'wallet', 'upi'],
-    default: 'cash',
+    enum: PaymentMethod,
+    default: PaymentMethod.CASH,
   })
   paymentMethod: string;
 
@@ -33,8 +35,8 @@ export class Expense {
   isRecurring: boolean;
 
   @Prop({
-    enum: ['daily', 'weekly', 'monthly', 'yearly'],
-    default: 'monthly',
+    enum: RecurringType,
+    default: RecurringType.MONTHLY,
   })
   recurringType: string;
 

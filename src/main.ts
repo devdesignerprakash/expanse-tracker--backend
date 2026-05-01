@@ -11,6 +11,7 @@ async function bootstrap() {
   .setDescription('API documentation for Expense Tracker')
   .setVersion(packaage.version)
   .build();
+  app.setGlobalPrefix('api');
   app.useGlobalPipes(new ValidationPipe());
   const documentFactory = () => SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, documentFactory());
