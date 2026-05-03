@@ -2,7 +2,6 @@ import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 import { HydratedDocument, Types } from "mongoose";
 import { Period } from "../utils/period.enum";
 
-
 export type BudgetDocument= HydratedDocument<Budget>
 
 @Schema({timestamps:true})

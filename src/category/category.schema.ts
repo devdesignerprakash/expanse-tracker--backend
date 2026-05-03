@@ -1,7 +1,7 @@
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 import { HydratedDocument } from "mongoose";
 import * as mongoose from "mongoose";
-import { type } from "../utils/type.enum";
+import { categoryType } from "../utils/categoryType.enum";
 
 export type CategoryDocument = HydratedDocument<Category>;
 
@@ -16,10 +16,10 @@ export class Category {
 
   @Prop({ 
     type:String,
-    enum: type, 
-    default: type.EXPENSE
+    enum: categoryType, 
+    default: categoryType.EXPENSE
   })
-  type: type
+  type: categoryType
 
   @Prop({ type: String, default: null })
   icon?: string; 
@@ -31,3 +31,5 @@ export class Category {
   isActive: boolean;
 }
 export const CategorySchema= SchemaFactory.createForClass(Category)
+
+CategorySchema.index({userId:1, name:1}, {unique:true, collation:{locale:'en', strength:2}})
