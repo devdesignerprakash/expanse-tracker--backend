@@ -6,13 +6,14 @@ import { UserModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
 import { ExpenseModule } from './expense/expense.module';
 import { CategoryModule } from './category/category.module';
+import { BudgetModule } from './budget/budget.module';
 
 @Module({
   imports: [ConfigModule.forRoot({
     isGlobal: true,
     envFilePath: '.env',
     load: [dbConfig]
-  }),DatabaseModule, UserModule,AuthModule,ExpenseModule, CategoryModule],
+  }),DatabaseModule, UserModule,AuthModule,ExpenseModule, CategoryModule, BudgetModule],
   controllers: [],
   providers: [],
 })

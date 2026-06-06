@@ -2,6 +2,6 @@ import { Controller } from "@nestjs/common";
 
 
 @Controller('category')
-export class CategoryControllers{
+export class CategoryController{
     
 }
