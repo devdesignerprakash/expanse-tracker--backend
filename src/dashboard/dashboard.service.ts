@@ -1,16 +1,19 @@
 import { Injectable } from "@nestjs/common";
 import { InjectModel } from "@nestjs/mongoose";
 import { Model } from "mongoose";
+import { IncomeDocument } from "../income/income.schema";
+import { BudgetDocument } from "../budget/budget.schema";
+import { ExpenseDocument } from "../expense/expense.schema";
 
 @Injectable()
 export class DashboardService {
     constructor(
         @InjectModel('Income')
-        private readonly incomeModel: Model<any>,
+        private readonly incomeModel: Model<IncomeDocument>,
         @InjectModel('Expense')
-        private readonly expenseModel: Model<any>,
+        private readonly expenseModel: Model<ExpenseDocument>,
         @InjectModel('Budget')
-        private readonly budgetModel: Model<any>,
+        private readonly budgetModel: Model<BudgetDocument>,
     ) {}
 
     async getTotalsByUserId(userId: string) {
