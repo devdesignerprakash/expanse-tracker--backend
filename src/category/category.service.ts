@@ -18,7 +18,8 @@ export class CategoryService{
             const newCategory = await this.categoryDocument.create(data);
             return await newCategory.save();
         } catch (error) {
-            if (error?.code === 11000) {
+            const errAny = error as any;
+            if (errAny && (errAny.code === 11000 || /duplicate key/i.test(errAny?.message || ''))) {
                 throw new ConflictException('Category already exists with this name');
             }
             throw error;
@@ -44,7 +45,8 @@ export class CategoryService{
 
             return updatedCategory;
         } catch (error) {
-            if (error?.code === 11000) {
+            const errAny = error as any;
+            if (errAny && (errAny.code === 11000 || /duplicate key/i.test(errAny?.message || ''))) {
                 throw new ConflictException('Category already exists with this name');
             }
             throw error;
